@@ -10,15 +10,15 @@
 
 int main(int argc, char **argv) {
 
-	int columncnt; //input column
-	int out_columncnt; //output column
-	int i; //the incrementor
-	int arg_cnvtr; //the variable that converts the column numbers to int
-	int opt; //var for parsing 
-	int err_opt; //error in parsing 
+	int columncnt = 0; //input column
+	int out_columncnt = 0; //output column
+	int i = 0; //the incrementor
+	int arg_cnvtr = 0; //the variable that converts the column numbers to int
+	int opt = 0; //var for parsing 
+	int err_opt = 0; //error in parsing 
 	int linecnt = 0; //the counter for the lines(records)
-	int f_col_flag; //detector if the number of fieds do not match with the specifed columns.
-	int *out_line; //output buffer
+	int f_col_flag = 0; //detector if the number of fieds do not match with the specifed columns.
+	int *out_line = 0; //output buffer
 
 	char *buf = NULL; //the buffer pointer
 	char **in_line; //the input buffer
