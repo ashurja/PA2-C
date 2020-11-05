@@ -19,7 +19,7 @@ int main(int argc, char **argv) {
 	int linecnt = 0; //the counter for the lines(records)
 	int f_col_flag = 0; //detector if the number of fieds do not match with the specifed columns.
 	int *out_line = 0; //output buffer
-
+	int quat_flag = 0; // determines if the comma is in the quatation marks
 	char *buf = NULL; //the buffer pointer
 	char **in_line; //the input buffer
 
@@ -59,10 +59,19 @@ int main(int argc, char **argv) {
 
 			*(in_line + i) = buf;
 			while (*buf != '\0') {
-				if ((*buf == ',') || (*buf == '\n')) {
+				if (*buf == '"') {
+					if (quat_flag == 0) {
+						quat_flag = 1; 
+					}
+					else {
+						quat_flag = 0;
+					}
+				}
+				if (((*buf == ',') && (quat_flag == 0)) || (*buf == '\n')) {
 					*buf++ = '\0'; 
 					break;
 				}
+				
 				buf++;
 			}
 		}
